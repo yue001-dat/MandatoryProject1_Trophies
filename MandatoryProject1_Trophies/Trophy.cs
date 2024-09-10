@@ -3,7 +3,7 @@
     public class Trophy
     {
         // Properties
-        private int Id {  get; set; }
+        public int Id {  get; set; }
         public string Competition { get; set; } = "Athletics";
         public int Year { get; set; }
 
