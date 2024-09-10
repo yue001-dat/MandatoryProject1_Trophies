@@ -1,12 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MandatoryProject1_Trophies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MandatoryProject1_Trophies.Tests
+﻿namespace MandatoryProject1_Trophies.Tests
 {
     [TestClass()]
     public class TrophiesRepositoryTests

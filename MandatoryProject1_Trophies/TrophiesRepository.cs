@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace MandatoryProject1_Trophies
+﻿namespace MandatoryProject1_Trophies
 {
     public class TrophiesRepository
     {
