@@ -26,7 +26,7 @@
         /**
          * Methods
          **/
-        public List<Trophy> Get(int ?Year = null, string ?sortBy = null) 
+        public List<Trophy> Get(int ?Year = null, string ?sortBy = null)
         {
             List<Trophy> list = new List<Trophy>(trophies);
 
@@ -35,7 +35,7 @@
                 list = list.Where(item => item.Year == Year).ToList();
             }
 
-            // Sort by Year or Competition (ASC)
+            // Sort by Year (DESC) or Competition (ASC)
             if(sortBy != null)
             {
                 if(sortBy == "competition")
@@ -45,7 +45,7 @@
                 
                 if(sortBy == "year")
                 {
-                    list = list.OrderBy(item => item.Year).ToList();
+                    list = list.OrderByDescending(item => item.Year).ToList();
                 }
             }
 
