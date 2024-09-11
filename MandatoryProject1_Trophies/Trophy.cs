@@ -38,6 +38,13 @@
             }
         }
 
+        // Validate All
+        public void validate()
+        {
+            validateCompetition();
+            validateYear();
+        }
+
         // ToString Method
         public override string ToString()
         {

@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace MandatoryProject1_Trophies
+﻿namespace MandatoryProject1_Trophies
 {
     public class TrophiesRepository
     {
@@ -28,14 +26,13 @@ namespace MandatoryProject1_Trophies
         /**
          * Methods
          **/
-
-        public List<Trophy> Get(int ?Year, string ?sortBy) 
+        public List<Trophy> Get(int ?Year = null, string ?sortBy = null) 
         {
             List<Trophy> list = new List<Trophy>(trophies);
 
             // Filter by Year
             if(Year != null) {
-                list.Where(item => item.Year == Year);
+                list = list.Where(item => item.Year == Year).ToList();
             }
 
             // Sort by Year or Competition (ASC)
@@ -43,17 +40,17 @@ namespace MandatoryProject1_Trophies
             {
                 if(sortBy == "competition")
                 {
-                    list.OrderBy(item => item.Competition);
+                    list = list.OrderBy(item => item.Competition).ToList();
                 }
                 
                 if(sortBy == "year")
                 {
-                    list.OrderBy(item => item.Year);
+                    list = list.OrderBy(item => item.Year).ToList();
                 }
             }
 
             // Return List
-            return list.ToList();
+            return list;
         }
 
         public Trophy? GetById(int id)
@@ -63,6 +60,7 @@ namespace MandatoryProject1_Trophies
 
         public Trophy? Add(Trophy trophy)
         {
+            trophy.validate();
             trophy.Id = nextId++;
             trophies.Add(trophy);
 
@@ -85,6 +83,8 @@ namespace MandatoryProject1_Trophies
 
         public Trophy? Update(int id, Trophy values)
         {
+            values.validate();
+
             Trophy? targetTrophy = GetById(id);
 
             if (targetTrophy == null)
